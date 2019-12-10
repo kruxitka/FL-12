@@ -1,3 +1,73 @@
+@media print {
+  nav,
+  .tm-team-img img,
+  .gallery-container,
+  .img-contact-us,
+  #ideas ~ section,
+  ::before,
+  li::after,
+  #about,
+  .carousel-indicators {
+    display: none;
+  }
+
+  .tm-content-box.flex-2-col {
+    text-align: center;
+  }
+
+  h2 {
+    text-transform: uppercase;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .padding-medium,
+  .tm-banner,
+  .tm-footer,
+  #tmCarousel,
+  .tm-main-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .padding-medium {
+    padding: 0;
+  }
+
+  .blocks .tm-team-description-container h2.tm-section-title {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  .heading li {
+    list-style: none;
+  }
+
+  .padding-medium ol li:nth-child(odd) {
+    text-align: right;
+  }
+
+  .padding-medium ol li:nth-child(even) {
+    text-align: left;
+  }
+
+  .padding-medium ol {
+    padding: 0 175px 0 175px;
+  }
+
+  .tm-team-description-container {
+    max-width: 100%;
+  }
+
+  .tm-content-box {
+    margin-bottom: 10px;
+  }
+}
+
 .tm-nav-item a:hover {
   color: #fff;
   background-color: lightskyblue;
@@ -100,7 +170,10 @@
 
 .form-group textarea {
   border-color: lightskyblue;
-  background: url(".../homework/img/email-icon.png");
+  background-image: url("../img/email-icon.png");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: bottom 10px right 10px;
 }
 
 .form-group textarea:focus {
@@ -129,12 +202,6 @@ section .tm-content-box.flex-2-col {
   box-shadow: none;
 }
 
-#ideas,
-section.heading ~ section,
-#home ~ section {
-  position: relative;
-}
-
 #ideas::before,
 section.heading ~ section::before,
 #home ~ section::before {
@@ -146,4 +213,10 @@ section.heading ~ section::before,
   height: 0;
   border-top: 50px solid lightskyblue;
   border-right: 50px solid transparent;
+}
+
+#ideas,
+section.heading ~ section,
+#home ~ section {
+  position: relative;
 }
