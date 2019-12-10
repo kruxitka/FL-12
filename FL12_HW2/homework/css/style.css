@@ -1,6 +1,6 @@
 @media print {
   nav,
-  .tm-team-img img,
+  .tm-team-img,
   .gallery-container,
   .img-contact-us,
   #ideas ~ section,
@@ -19,28 +19,16 @@
     text-transform: uppercase;
   }
 
-  .container {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-
   .padding-medium,
   .tm-banner,
   .tm-footer,
   #tmCarousel,
   .tm-main-content {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
-  .padding-medium {
     padding: 0;
   }
 
   .blocks .tm-team-description-container h2.tm-section-title {
     text-align: center;
-    font-weight: normal;
   }
 
   .heading li {
