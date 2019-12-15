@@ -1,8 +1,12 @@
 $contentBackground: rgb(42, 41, 56);
-//$textColorWhite: #fff;
+$extraTextColor: #fff;
 $landingLogo: url(../img/m-h-night.jpg);
-$buttonColor: rgba(252, 167, 10, 0.815);
+$buttonColor: rgb(252, 167, 10);
 $cardColor: rgb(64, 62, 85);
 $textHighlight: rgb(241, 65, 65);
 $fontColor: #fff;
 $headingTextFont: "Fresca", sans-serif;
+$font-weights: (
+  "superBold": 900,
+  "normalBold": 600
+);

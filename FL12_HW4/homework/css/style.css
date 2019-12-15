@@ -1,0 +1,75 @@
+body {
+  margin: auto;
+  max-width: 1920px;
+}
+
+main {
+  margin: auto;
+  width: 900px;
+}
+
+.home_background {
+  width: 100%;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+header nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0;
+  list-style-type: none;
+  flex: 0.5; /*try to change it */
+  height: 60px;
+}
+
+header nav .logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+}
+
+header .banner {
+  background-image: url("../img/home-bg.jpg");
+  @mixin rectangle($width, $height, $bottom, $right) {
+    content: "";
+    width: $width;
+    height: $height;
+    background-color: $color-primary;
+    bottom: $bottom;
+    right: $right;
+    position: absolute;
+    z-index: -1;
+  }
+  background-size: cover;
+  background-position: center;
+  min-height: 800px;
+  display: flex;
+  justify-content: center;
+}
+.banner h1 {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.section-card-wrap {
+  /* display: grid;
+    grid-template-columns: 1fr; */
+  display: flex;
+  justify-content: center;
+}
+.section-card {
+  margin-top: 50px;
+}
+
+.section-card-img {
+  /* display: flex;
+  justify-content: center;
+  margin: 0; */
+  width: 800px;
+}

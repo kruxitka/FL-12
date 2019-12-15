@@ -11,18 +11,29 @@ body {
     border-bottom-right-radius: 600px 200px;
     font-family: "Source Sans Pro", sans-serif; }
     body .header .header-wrap {
-      width: 600px;
       margin-left: 200px; }
       body .header .header-wrap .header_heading {
+        width: 600px;
         font-size: 70px;
         font-weight: bold;
-        line-height: 70px; }
+        line-height: 70px;
+        position: relative;
+        z-index: 1; }
+        body .header .header-wrap .header_heading::after {
+          content: "";
+          width: 300px;
+          height: 65px;
+          right: 310px;
+          background: #f14141;
+          z-index: -1;
+          position: absolute; }
       body .header .header-wrap .header_text {
         margin-bottom: 70px;
         font-family: "Fresca", sans-serif;
-        line-height: 1.8; }
+        line-height: 1.8;
+        white-space: pre-line; }
       body .header .header-wrap .header_button {
-        background-color: rgba(252, 167, 10, 0.815);
+        background-color: #fca70a;
         color: #fff;
         height: 50px;
         width: 150px;
@@ -31,11 +42,15 @@ body {
         font-family: "Hind", sans-serif;
         font-weight: 900;
         font-size: 18px; }
+        body .header .header-wrap .header_button:hover {
+          background-color: gray; }
       body .header .header-wrap .login {
         color: #fff;
         font-weight: 900;
         font-size: 20px;
         margin-left: 150px; }
+        body .header .header-wrap .login:hover {
+          color: blue; }
 
 .landing-logo, .footer .landing-logo {
   padding-top: 20px;
@@ -49,7 +64,7 @@ body {
     color: #fff;
     text-align: center;
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 600;
     font-family: "Fresca", sans-serif; }
     .landing-logo p span, .footer .landing-logo p span {
       font-size: 10px;
@@ -58,17 +73,20 @@ body {
 main {
   font-family: "Source Sans Pro", sans-serif; }
   main .section_text {
-    text-align: center;
     font-size: 40px;
-    font-weight: 600; }
-  main .section_text::before {
-    content: "";
-    width: 200px;
-    height: 45px;
-    right: 70px;
-    background: #f14141;
-    z-index: -1;
-    position: absolute; }
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 1; }
+    main .section_text::after {
+      content: "";
+      width: 190px;
+      height: 45px;
+      right: 600px;
+      background: #f14141;
+      z-index: -1;
+      position: absolute; }
   main .section_card_wrap {
     width: 1100px;
     margin: 0 auto; }
@@ -99,18 +117,40 @@ main {
           font-family: "Hind", sans-serif; }
         main .section_card_wrap .section_card .section_card_right_container .section_link {
           color: #fff; }
+          main .section_card_wrap .section_card .section_card_right_container .section_link:hover {
+            color: blue; }
 
 .section_banner {
+  margin-top: 100px;
   width: 1260px;
-  margin: 0 auto;
+  margin: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-image: linear-gradient(to right, rgba(252, 167, 10, 0.815), #f14141);
+  background-image: linear-gradient(to right, #fca70a, #f14141);
   height: 150px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 100px; }
+  .section_banner .section_banner_heading {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 0;
+    z-index: 1;
+    position: relative; }
+    .section_banner .section_banner_heading::after {
+      content: "";
+      width: 70px;
+      height: 45px;
+      right: 220px;
+      background: #f14141;
+      z-index: -1;
+      position: absolute; }
+  .section_banner .section_banner_text {
+    font-family: "Fresca", sans-serif; }
   .section_banner .section_banner_button {
-    background-color: rgba(252, 167, 10, 0.815);
+    background-color: #fca70a;
     color: #fff;
     height: 50px;
     width: 150px;
@@ -119,16 +159,24 @@ main {
     font-family: "Hind", sans-serif;
     font-weight: 900;
     font-size: 18px; }
+    .section_banner .section_banner_button:hover {
+      background-color: gray; }
 
 .footer {
   background: #403e55;
   height: 250px;
   color: #fff;
-  font-family: "Fresca", sans-serif; }
+  font-family: "Fresca", sans-serif;
+  z-index: -1;
+  position: relative;
+  margin-top: -90px; }
   .footer .footer-wrap {
+    padding-top: 130px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center; }
+  .footer .landing-logo p {
+    color: #fff; }
   .footer .footer_text {
     width: 400px; }

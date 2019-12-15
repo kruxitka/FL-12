@@ -1,9 +1,12 @@
 $contentBackground: #fff;
-//$textColorBlack: black;
+$extraTextColor: black;
 $landingLogo: url(../img/m-h-day.jpg);
 $buttonColor: rgb(98, 167, 35);
 $cardColor: rgb(13, 9, 36);
-$textHighlight: rgba(31, 100, 204, 0.767);
-//$footerBackground: rgb(42, 41, 56);
+$textHighlight: rgb(31, 100, 204);
 $fontColor: black;
 $headingTextFont: "Hind", sans-serif;
+$font-weights: (
+  "superBold": 900,
+  "normalBold": 700
+);
