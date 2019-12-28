@@ -11,7 +11,6 @@ if (startGame === false) {
 } else if (startGame === true) {
     const numberRandom = Math.round(Math.random() * maxRandomCoeff);
     console.log(numberRandom);
-    // const userAttempt = 1;
     gainedPrize = 0;
     let guessed = false;
     let userAttempt = 1;
@@ -30,17 +29,23 @@ if (startGame === false) {
         userAttempt++;
         prize = firstRoundPrize / prizeReducer;
     }
-    if (enterNumber === numberRandom) {
+    if (enterNumber !== numberRandom) {
         confirm(`
-            Thank you for your participation. Your prize is: ${firstRoundPrize}
+            Thank you for your participation. Your prize is: ${gainedPrize}
             Do you want to play again ?
             `)
+        gainedPrize = 0;
+    } else {
+        gainedPrize = prize;
+        const continueGame = confirm(`
+        Congratulation, you won!   
+        Your prize is: $${prize}. Do you want to continue? 
+        `);
+        if (continueGame === true) {
+            confirm(`
+            Thank you for your participation. Your prize is: ${gainedPrize}
+            Do you want to play again ?
+            `)
+        }
     }
-
 }
-
-// if (enterNumber === null || enterNumber === '') {
-//     alert('Canceled') // check if it's correct
-// } else if (enterNumber !== numberRandom) {
-//     gt
-// }
