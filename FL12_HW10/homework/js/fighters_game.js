@@ -13,7 +13,7 @@ function Fighter({ name, damage, hp, strength, agility }) {
         attack: (defender) => {
             const hundred = 100;
             const successProbability = Math.round(Math.random() * hundred);
-            if (hundred - (defender.getStrength() - defender.getAgility()) > successProbability) {
+            if (hundred - (defender.getStrength() + defender.getAgility()) > successProbability) {
                 defender.dealDamage(damage);
                 console.log(`${name} makes ${damage} damage to ${defender.getName()}`)
             } else {
@@ -21,7 +21,10 @@ function Fighter({ name, damage, hp, strength, agility }) {
             }
         },
         heal: (healthPoints) => healthPoints + hp > totalHealth ? totalHealth : healthPoints + hp,
-        dealDamage: (healthAmount) => hp - healthAmount < 0 ? hp : hp - healthAmount,
+        dealDamage: (damageAmount) => {
+            const reducedHealth = hp - damageAmount;
+            hp = damageAmount < 0 ? 0 : reducedHealth;
+        },
         logCombatHistory: () => {
             return console.log(`Name: ${name} , Wins: ${wins}, Losses: ${losses}`);
         },
@@ -53,6 +56,3 @@ function battle(fighterOne, fighterTwo) {
         }
     }
 }
-
-// const myFighter = new Fighter({name: 'Maximus', damage: 20, hp: 100, strength: 20, agility: 15})
-// const myFighter2 = new Fighter({name: 'Commodus', damage: 25, hp: 90, strength: 25, agility: 20})
