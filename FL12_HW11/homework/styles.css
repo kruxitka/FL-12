@@ -1,0 +1,37 @@
+#root {
+    padding: 20px 20 px;
+}
+
+*:hover {
+   cursor: pointer;  
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+p:hover {
+  background-color: rgb(214, 209, 209);
+}
+.material-icons.md-18 {
+  font-size: 18px;
+  color: gray;
+}
+
+.material-icons.md-25 {
+  color: rgb(238, 178, 12);
+  vertical-align: bottom;
+}
+
+.visible {
+  font-style: italic;
+  display: block;
+}
+
+.folder > ul {
+  display: none;
+}
+
+.folder-open > ul {
+  display: block;
+}
