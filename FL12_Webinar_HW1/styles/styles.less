@@ -1,21 +1,30 @@
 @import "variables.less";
 
-.navbar-light .navbar-nav .active .nav-link {
-    color: @link-color;
-    background-color: @blue;
+.navbar-light {
+    .navbar-nav {
+        .active {
+            .nav-link{
+                color: @white;
+                background-color: @blue;
+           }
+        }
+    }  
 }
-.header {
+
+.heading {
     color: @blue
+}
+
+.card {
+    border-color: transparent;
 }
 
 .sports-list-item {
     color: @white;
-    font-weight: bold;
-    border-color: transparent;
     text-align: center;
 
     &__footer {
-        
+
         &--red {
             background-color: @red;
         }
@@ -28,5 +37,6 @@
         &--green {
             background-color: @green;
         }
-    }
+    }   
 }
+
