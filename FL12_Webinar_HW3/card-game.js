@@ -12,7 +12,6 @@ class Card {
         return `${Card.ranks[this.rank]} of ${this.suit}`;
     }
     static compare(cardOne, cardTwo) {
-        console.log(cardOne, cardTwo)
         if (cardOne.rank > cardTwo.rank) { return 1 }
         if (cardOne.rank < cardTwo.rank) { return -1 }
         if (cardOne.rank === cardTwo.rank) { return 0 }
@@ -58,24 +57,29 @@ class Player {
 
     static play(playerOne, playerTwo) {
         while (playerOne.deck.count > 0) {
-            const playerOneCard = playerOne.deck.draw(1);
-            console.log(`${playerOne.name} : ${playerOneCard.toString()}`)
-            const playerTwoCard = playerTwo.deck.draw(1);
-            console.log(`${playerTwo.name} : ${playerTwoCard.toString()}`)
+            const playerOneCard = playerOne.deck.draw(1)[0];
+            const playerTwoCard = playerTwo.deck.draw(1)[0];
             let cardComparisonResult = Card.compare(playerOneCard, playerTwoCard);
-            console.log(cardComparisonResult)
-            if (cardComparisonResult === 1) { playerOne.winsCount++; console.log(playerOne.winsCount) }
+            if (cardComparisonResult === 1) { playerOne.winsCount++ }
             if (cardComparisonResult === -1) { playerTwo.winsCount++ }
             playerOne.deck.draw(1);
             playerTwo.deck.draw(1);
         }
-        console.log(`${playerOne.name} : ${playerOne.wins}`)
-        console.log(`${playerTwo.name} : ${playerTwo.wins}`)
-        // console.log(`{Winner} wins {X} to {Y}`(i.e. "John wins 10 to 7").)
-    }
+        console.log(`${playerOne.name}: ${playerOne.wins}`)
+        console.log(`${playerTwo.name}: ${playerTwo.wins}`)
 
+        let winner;
+        if (playerOne.wins > playerTwo.wins) { winner = playerOne }
+        else { winner = playerTwo }
+        let loser;
+        if (playerOne.wins < playerTwo.wins) { loser = playerOne }
+        else { loser = playerTwo }
+        if (playerOne.wins === playerTwo.wins) { console.log(`It’s a draw`) }
+        else { console.log(`${winner.name} wins ${winner.wins} to ${loser.wins}`) }
+    }
 }
 
-let playerOne = new Player('Petya')
-let playerTwo = new Player('Vasya')
-Player.play(playerOne, playerTwo)
+// game testing
+// const playerOne = new Player('Petya');
+// const playerTwo = new Player('Vasya');
+// Player.play(playerOne, playerTwo)
