@@ -69,13 +69,19 @@ class Player {
         console.log(`${playerTwo.name}: ${playerTwo.wins}`)
 
         let winner;
-        if (playerOne.wins > playerTwo.wins) { winner = playerOne }
-        else { winner = playerTwo }
         let loser;
-        if (playerOne.wins < playerTwo.wins) { loser = playerOne }
-        else { loser = playerTwo }
-        if (playerOne.wins === playerTwo.wins) { console.log(`It’s a draw`) }
-        else { console.log(`${winner.name} wins ${winner.wins} to ${loser.wins}`) }
+        if (playerOne.wins > playerTwo.wins) {
+            winner = playerOne;
+            loser = playerTwo
+        } else if (playerOne.wins < playerTwo.wins) {
+            winner = playerTwo;
+            loser = playerOne;
+        }
+        if (playerOne.wins === playerTwo.wins) {
+            console.log(`It’s a draw`)
+        } else {
+            console.log(`${winner.name} wins ${winner.wins} to ${loser.wins}`)
+        }
     }
 }
 
