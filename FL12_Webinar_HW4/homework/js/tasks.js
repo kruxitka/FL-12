@@ -19,7 +19,14 @@ function addUniqueId(obj) {
 // console.log(array, copiedArray)
 // console.log(array === copiedArray)
 
+// function regroupObject(oldObject) {
+//     oldObject = { name, university }
+//     // const { university, details: {, , name } } = oldObject;
+//     return ()
 
+// }
+
+// const oldObject = { name: 'Someone', details: {id: 1, age: 11, university: 'UNI'}}
 
 function findUniqueElements(array) {
     return new Set(array);
@@ -35,6 +42,19 @@ function hideNumber(phoneNumber) {
 // const phoneNumber = '0123456789'
 // console.log(hideNumber(phoneNumber))
 
+function required(param) {
+    if (param === required) {
+        throw "Missing property"
+    } else {
+        return param;
+    }
+}
+function add(a = required, b = required) {
+    return required(a) + required(b);
+}
+
+// add(1, 3)
+// add(1)
 
 function fetchJson(url) {
     return fetch(url)
@@ -43,6 +63,8 @@ function fetchJson(url) {
         .then(res => console.log(res.map(el => el.name).sort((a, b) => a.localeCompare(b))))
         .catch(error => console.log(`ERROR: ${error.stack}`));
 }
+
+// fetchJson('https://api.github.com/users/kruxitka/repos')
 
 async function fetchJsonAsync(url) {
     try {
@@ -56,3 +78,4 @@ async function fetchJsonAsync(url) {
     }
 }
 
+// fetchJsonAsync('https://jsonplaceholder.typicode.com/users')
