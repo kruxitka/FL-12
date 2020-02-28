@@ -41,7 +41,7 @@ function hideNumber(phoneNumber) {
 
 function required(param) {
     if (param === required) {
-        throw "Missing property"
+        throw Error("Missing property");
     } else {
         return param;
     }
