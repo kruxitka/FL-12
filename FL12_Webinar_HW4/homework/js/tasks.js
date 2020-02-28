@@ -19,13 +19,10 @@ function addUniqueId(obj) {
 // console.log(array, copiedArray)
 // console.log(array === copiedArray)
 
-// function regroupObject(oldObject) {
-//     oldObject = { name, university }
-//     // const { university, details: {, , name } } = oldObject;
-//     return ()
-
-// }
-
+function regroupObject({ name, details: { id, age, university } }) {
+    return { university, user: { age, firstName: name, id } };
+}
+// regroupObject(oldObject)
 // const oldObject = { name: 'Someone', details: {id: 1, age: 11, university: 'UNI'}}
 
 function findUniqueElements(array) {
