@@ -19,6 +19,8 @@ function addUniqueId(obj) {
 // console.log(array, copiedArray)
 // console.log(array === copiedArray)
 
+
+
 function findUniqueElements(array) {
     return new Set(array);
 }
@@ -33,4 +35,24 @@ function hideNumber(phoneNumber) {
 // const phoneNumber = '0123456789'
 // console.log(hideNumber(phoneNumber))
 
+
+function fetchJson(url) {
+    return fetch(url)
+        .then(request => request.text())
+        .then(text => JSON.parse(text))
+        .then(res => console.log(res.map(el => el.name).sort((a, b) => a.localeCompare(b))))
+        .catch(error => console.log(`ERROR: ${error.stack}`));
+}
+
+async function fetchJsonAsync(url) {
+    try {
+        const request = await fetch(url);
+        const text = await request.text();
+        const res = JSON.parse(text);
+        return console.log(res.map(el => el.name).sort((a, b) => a.localeCompare(b)));
+    }
+    catch (error) {
+        return console.log(`ERROR: ${error.stack}`);
+    }
+}
 
