@@ -13,3 +13,7 @@ li {
 .spinner-border {
     display: none;
 }
+
+#get-users {
+    margin-bottom: 2rem;
+}

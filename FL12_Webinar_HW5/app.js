@@ -18,11 +18,9 @@ function getUsers() {
                     <li>Phone: ${user.phone}</li>
                     <li>Website: ${user.website}</li>
                     <li>Company: ${user.company.name}</li>
-                </ul>
-                 
+                </ul>  
                     <button id="edit-user-button" type="button" class="btn btn-success mr-4">Edit User</button>
-                    <button id="delete-user" type="button" class="btn btn-danger">Delete User</button>
-                  
+                    <button id="delete-user" type="button" class="btn btn-danger">Delete User</button>              
                 </div>
                 `;
             });
@@ -42,7 +40,13 @@ function deleteUser(user) {
     fetch('https://jsonplaceholder.typicode.com/users/${userId}', {
         method: 'DELETE'
     })
-    console.log(`User with id: ${userId} was removed`)
+        .then(response => {
+            if (response.ok) {
+                console.log(`User with id:${userId} was removed`)
+            } else {
+                "Failed to delete user"
+            }
+        })
     user.target.parentNode.style.display = 'none';
 }
 
@@ -101,11 +105,18 @@ function editUser(user) {
               <label for="company">Company: </label>
               <input type="text" name="company" value=${user.company.name}>
               </div>
+              <button id="update-user" type="button" class="btn btn-success">Save</button>
               `
             let editUserForm = document.getElementById('edit-user')
             editUserForm.innerHTML = outputUser;
             editUserForm.style.display = 'block'
         })
+}
+
+document.addEventListener('click', updateUserInfo);
+
+function updateUserInfo() {
+
 }
 
 document.addEventListener('click', getUserPosts);
@@ -121,7 +132,15 @@ function getUserPosts(user) {
 
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         .then(response => response.json())
-        .then(posts => {
-            console.log(posts)
-        })
+        .then(data => {
+            let outputPosts = '<h3>Posts</h3>';
+            data.forEach(post => {
+                outputPosts += `
+                <h4>${post.title}</h4>
+                <p>${post.body}</h4>
+                `
+            })
+            document.getElementById('posts').innerHTML = outputPosts;
+        });
+
 }
