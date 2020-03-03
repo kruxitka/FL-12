@@ -10,13 +10,13 @@ if (Number.isNaN(a) || Number.isNaN(b) || Number.isNaN(c) || a === 0) {
   let x1;
   let x2;
   if (D > 0) {
-    x1 = Math.round((-b + Math.sqrt(D)) / (coeff * a));
-    x2 = Math.round((-b - Math.sqrt(D)) / (coeff * a));
+    x1 = (-b + Math.sqrt(D)) / (coeff * a);
+    x2 = (-b - Math.sqrt(D)) / (coeff * a);
     alert(`Result values: x1 = ${x1}, x2 = ${x2}`);
   }
   if (D === 0) {
-    x1 = Math.round(-b / (coeff * a));
-    x2 = Math.round(-b / (coeff * a));
+    x1 = -b / (coeff * a);
+    x2 = -b / (coeff * a);
     alert(`Result values: x1 = ${x1}, x2 = ${x2}`);
   }
   if (D < 0) {
