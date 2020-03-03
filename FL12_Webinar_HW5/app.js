@@ -27,6 +27,7 @@ function getUsers() {
             document.getElementById('users-list').innerHTML = outputUsers;
             document.getElementById('users-list').style.display = 'block';
             document.getElementById('edit-user').style.display = 'none';
+            document.getElementById('posts').style.display = 'none';
             location.hash = ''
         })
 }
@@ -61,8 +62,7 @@ document.addEventListener('click', editUser);
 function editUser(user) {
     if (!user.target.matches('#edit-user-button')) return;
     let userId = user.target.parentNode.getAttribute('id');
-    let parent = user.target.parentNode.parentNode;
-    parent.style.display = 'none';
+    document.getElementById('users-list').style.display = 'none';
     location.hash = `/edit-user/${userId}`
 
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
@@ -145,42 +145,37 @@ document.addEventListener('click', getUserPosts);
 function getUserPosts(user) {
     if (!user.target.matches('#user-name')) return;
     let userId = user.target.parentNode.parentNode.parentNode.getAttribute('id');
-    let parent = user.target.parentNode.parentNode.parentNode.parentNode;
-    // console.log(parent)
-    // console.log(userId)
-    parent.style.display = 'none';
-    location.hash = `${userId}`
+    location.hash = "posts";
+    document.getElementById('posts').innerHTML = '';
+    document.getElementById('users-list').style.display = 'none';
+    document.getElementById('posts').style.display = 'block';
+
 
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         .then(response => response.json())
-        // .then(data => console.log(data))
-        .then(data => {
-            console.log(data)
+        .then(posts => { 
             let outputPosts = '<h3>Posts</h3>';
-            data.forEach(post => {
-                console.log(post.id)
-                outputPosts += `
+            posts.forEach(post => {
+                outputPosts = `
+                <div id="post${post.id}">
                 <h4>${post.title}</h4>
                 <p>${post.body}</p>
-                `
+                </div>`
+                document.getElementById('posts').innerHTML += outputPosts;
                 fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
                     .then(response => response.json())
-                    .then(data => {
-                        let outputComments = '<h4>Comments</h4>';
-                        data.forEach(comment => {
+                    .then(data1 => {
+                        let outputComments = '<div style="padding-left:100px">Comments';
+                        data1.forEach(comment => {
                             outputComments += `
                         <h5>${comment.name}</h5>
                         <p><i>${comment.email}</i></p>
                         <p>${comment.body}</p>
                         `
                         })
-                        console.log(outputComments)
-                        outputPosts += outputComments;
+                        outputComments += "</div>"
+                        document.getElementById(`post${post.id}`).innerHTML += outputComments;
                     })
-
-            })
-            document.getElementById('posts').innerHTML = outputPosts;
-        })
-
-
+            });
+        });
 }
