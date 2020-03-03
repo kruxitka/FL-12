@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework 12 - Simple TODO List</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+
+<body>
+  <div id="root">
+    <div id="main">Main</div>
+    <button class="btn create-set"><a href="#add_asset"></a>Create a set</button>
+    <section class="sets-list">List of sets</section>
+
+    <div id="add_asset" class="new-asset">
+      <form>
+        <label for="name">Name</label>
+        <input type="text" placeholder="Name" id="name" required>
+        <label>
+          <input type="text" name="term" placeholder="Enter term">
+        </label>
+        <label>
+          <input type="text" name="term" placeholder="Enter definition">
+        </label>
+      </form>
+    </div>
+  </div>
+
+  <script src="./src/app.js"></script>
+</body>
+
+</html>

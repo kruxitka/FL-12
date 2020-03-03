@@ -1,0 +1,33 @@
+body {
+    margin: auto;
+    min-width: 900px;
+}
+
+.main {
+    display: flex;
+}
+
+.btn {
+    font-weight: 700;
+    letter-spacing: .05rem;
+    font-size: 1.125rem;
+    padding: 1.25rem 4.0625rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    background-color: #3ccfcf;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0;
+    text-align: right;
+}
+.btn:hover {
+    color: #0000;
+    background-color: #f3e40e;
+   
+}
+
+.new-asset {
+    margin-top: 700px;
+}
