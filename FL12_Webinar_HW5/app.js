@@ -75,37 +75,37 @@ function editUser(user) {
               <form>
               <div>
               <label for="id">Id: </label>
-              <input type="text" name="id" value=${user.id}>
+              <input type="text" name="id" id="id" value=${user.id}>
               </div>
               <div>
               <label for="name">Name: </label>
-              <input type="text" name="name" value=${user.name}>
+              <input type="text" name="name" id="name" value=${user.name}>
               </div>
               <div>
               <label for="username">Username: </label>
-              <input type="text" name="username" value=${user.username}>
+              <input type="text" name="username" id="username" value=${user.username}>
               </div>
               <div>
               <label for="email">Email: </label>
-              <input type="text" name="email" value=${user.email}>
+              <input type="text" name="email" id="email" value=${user.email}>
               </div>
               <div>
               <label for="address">Address: </label>
-              <input type="text" name="address" value = ${user.address.street} ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}>
+              <input type="text" name="address" id="address" value = ${user.address.street} ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}>
               </div>
               <div>
               <label for="phone">Phone: </label>
-              <input type="text" name="phone" value=${user.phone}>
+              <input type="text" name="phone" id="phone" value=${user.phone}>
               </div>
               <div>
               <label for="website">Website: </label>
-              <input type="text" name="website" value=${user.website}>
+              <input type="text" name="website" id="website" value=${user.website}>
               </div>
               <div>
               <label for="company">Company: </label>
-              <input type="text" name="company" value=${user.company.name}>
+              <input type="text" name="company" id="company" value=${user.company.name}>
               </div>
-              <button id="update-user" type="button" class="btn btn-success">Save</button>
+              <button id="save-user" type="button" class="btn btn-success">Save</button>
               `
             let editUserForm = document.getElementById('edit-user')
             editUserForm.innerHTML = outputUser;
@@ -115,8 +115,29 @@ function editUser(user) {
 
 document.addEventListener('click', updateUserInfo);
 
-function updateUserInfo() {
-
+function updateUserInfo(user) {
+    if (!user.target.matches('#save-user')) return;
+    let userId = document.getElementById('id').value;
+    // let useremail = document.getElementById('email').value;
+    console.log(userId)
+    fetch(`https://jsonplaceholder.typicode.com/user/${userId}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: document.getElementById('email').value
+        })
+    }
+    )
+        .then(response => {
+            if (response.ok) {
+                console.log(`User with id:${userId} was updated`)
+            } else {
+                "Failed to update user"
+            }
+        })
 }
 
 document.addEventListener('click', getUserPosts);
@@ -125,22 +146,41 @@ function getUserPosts(user) {
     if (!user.target.matches('#user-name')) return;
     let userId = user.target.parentNode.parentNode.parentNode.getAttribute('id');
     let parent = user.target.parentNode.parentNode.parentNode.parentNode;
-    console.log(parent)
-    console.log(userId)
+    // console.log(parent)
+    // console.log(userId)
     parent.style.display = 'none';
     location.hash = `${userId}`
 
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
         .then(response => response.json())
+        // .then(data => console.log(data))
         .then(data => {
+            console.log(data)
             let outputPosts = '<h3>Posts</h3>';
             data.forEach(post => {
+                console.log(post.id)
                 outputPosts += `
                 <h4>${post.title}</h4>
-                <p>${post.body}</h4>
+                <p>${post.body}</p>
                 `
+                fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let outputComments = '<h4>Comments</h4>';
+                        data.forEach(comment => {
+                            outputComments += `
+                        <h5>${comment.name}</h5>
+                        <p><i>${comment.email}</i></p>
+                        <p>${comment.body}</p>
+                        `
+                        })
+                        console.log(outputComments)
+                        outputPosts += outputComments;
+                    })
+
             })
             document.getElementById('posts').innerHTML = outputPosts;
-        });
+        })
+
 
 }
