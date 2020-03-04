@@ -1,19 +1,19 @@
 // $("#someId").css({"prop" : "value", "prop1" : "value1", ...});
 
 //body: add padding 20px
-$("body").css("padding", "20px")
+$("body").css("padding", "20px");
 
 // id title: make align center, remove top margin
-$("#title").css({"text-align" : "center", "margin-top" : 0})
+$("#title").css({"text-align" : "center", "margin-top" : 0});
 
 // div after header: add double border and padding 20px
-$("header + div").css({"border-style": "double", "padding" : "20px"})
+$("header + div").css({"border-style": "double", "padding" : "20px"});
 
 // change color for all h2 and set top margin to 0
-$("h2").css({"color": "blue", "margin-top" : 0})
+$("h2").css({"color": "blue", "margin-top" : 0});
 
 // set font size 18px for all .list direct child
-$(".list").css("font-size", "18px")
+$(".list").css("font-size", "18px");
 
 
 // ******************************************************
@@ -40,7 +40,7 @@ $("#list-3 li:even").css({"margin-left" : "-20px"});
   // for the first li set any different color
 $("#list-3 li:first").css({"color" : "green"});
   // for all li with index > 5 set color to #ccc
-$("#list-3 li:gt(5)").css("color", "#ccc")
+$("#list-3 li:gt(5)").css("color", "#ccc");
 
 // show ul which is parent
 $('ul:parent').css({'border' : 'solid 1px black'});
@@ -48,7 +48,7 @@ $('ul:parent').css({'border' : 'solid 1px black'});
 $("li:has(em)").css("color", "red");
 
 // for li which contains text 'Buratino' set font weight to bold
-$("li:contains(Buratino)").css({"font-weight" : "bold"})
+$("li:contains(Buratino)").css({"font-weight" : "bold"});
 
 
 
@@ -59,9 +59,10 @@ $("li:contains(Buratino)").css({"font-weight" : "bold"})
 // ******************************************************
 
 // for b in p which is the only child set font size 36px
+$("p > b:only-child").css({"font-size" : "36px"});
 
 // for em in p which is the last child of type set color to green
-
+$("p > em:last-of-type").css({"color" : "green"});
 
 
 
@@ -72,10 +73,16 @@ $("li:contains(Buratino)").css({"font-weight" : "bold"})
 // ******************************************************
 
 // set width 80px for input with attribute name ended by 'age'
-// set width 120px for input with attribute name started by 'my'
-// console.log checked checkbox
-// show all images with a cat
+$("input[name$='age']").css({"width" : "80px"});
 
+// set width 120px for input with attribute name started by 'my'
+$("input[name^='my']").css({"width" : "120px"});
+
+// console.log checked checkbox
+console.log($("input:checked")[0])
+
+// show all images with a cat
+$("img[src*='cat']").show();
 
 // ******************************************************
 // is(), not(), has()
@@ -84,5 +91,7 @@ $("li:contains(Buratino)").css({"font-weight" : "bold"})
 // children(), prev(), next(), siblings()
 // ******************************************************
 // for .mbox with index 3 set padding-top 50px
-// for first div wraper for img set float left and border red
+$(".mbox").eq(3).css({"padding-top" : "50px"});
 
+// for first div wraper for img set float left and border red
+$("img").parent("div").css({float: "left", border: "2px solid red"})
