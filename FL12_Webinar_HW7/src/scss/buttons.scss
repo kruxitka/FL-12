@@ -1,0 +1,50 @@
+.btn {
+    border-radius: 9rem;
+    height       : 12rem;
+    width        : 12rem;
+    border       : solid 1px;
+    border-color : grey;
+    margin       : auto;
+    color        : transparent;
+    font-size    : larger;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        color     : greenyellow;
+        background: hotpink;
+        cursor    : pointer;
+    }
+
+    &-rock {
+        background-image   : url(../img/rock.png);
+        background-size    : cover;
+        background-position: center;
+    }
+
+    &-scissors {
+        background-image   : url(../img/scissors.png);
+        background-size    : cover;
+        background-position: center;
+    }
+
+    &-paper {
+        background-image   : url(../img/paper.png);
+        background-size    : cover;
+        background-position: center;
+    }
+    
+    &-restart {
+        width: 10rem;
+        height: 3rem;
+        font-size: large;
+        border-radius: 1rem;
+        border: none;
+        background-color: rgb(155, 48, 107);
+        color: white;
+        grid-template-columns: 1fr;
+        margin: auto;
+    }
+}
