@@ -1,20 +1,32 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "development",
+    // context: path.resolve(__dirname, "src"),
     entry: "./src/js/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: 'bundle.js'
+        filename: 'js/app.js'
     },
+    plugins: [
+        // new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'css/styles.css',
+        }),
+        new HtmlWebpackPlugin({
+        template: "index.html",
+    }
+    )],
     module: {
         rules: [
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 loader: 'file-loader',
                 options: {
-                  outputPath: 'img',
+                  name: 'img/[name].[ext]',
                 }
             },
             {
@@ -28,11 +40,12 @@ module.exports = {
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
+                    {loader: MiniCssExtractPlugin.loader},
+                    // options: {
+                    //     publicPath: 'scss'
+                    // }},
+                    // 'style-loader',
                     'css-loader',
-                    // Compiles Sass to CSS
                     'sass-loader',
                 ],
             },
@@ -42,16 +55,7 @@ module.exports = {
     devServer: {
         open: true,
         contentBase: './dist',
-        // inline: true,
-        port: 4000,
-    },
-    //       devServer: {
-    //         contentBase: path.join(__dirname, 'dist'),
-    //         compress: true,
-    //         port: 9000
-    //       },
-    plugins: [new HtmlWebpackPlugin({
-        template: "index.html",
+        // port: 4000,
     }
-    )]
+    
 }

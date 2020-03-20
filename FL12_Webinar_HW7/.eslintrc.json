@@ -34,10 +34,5 @@
     "func-names": 1,
     "valid-typeof": 1,
     "no-console": 1
-  },
-  "extends": [
-    "eslint-config-prettier",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ]
+  }
 }

@@ -1,46 +1,46 @@
 @import "buttons";
 
 body {
-    max-width: 960px;
-    margin: 0 auto;
+    max-width  : 960px;
+    margin     : 0 auto;
     line-height: 1.5;
-    /* overflow: hidden; */
- }
- 
- .heading, .rules-heading {
-     text-align: center;
-     color: rgb(39, 33, 33);
- }
+}
 
- .rules {
-     display: flex;
-     justify-content: center;
-     font-size: large;
+.heading,
+.rules-heading,
+#score,
+#result {
+    text-align: center;
+    color     : rgb(39, 33, 33);
+}
 
-     ol {
-         margin-top: 0;
-     }
- }
- 
- #buttons {
-     display: grid;
-     grid-template-columns: 1fr 1fr 1fr;
-     margin-top: 2rem;
- }
- 
- .restart-game {
-     margin-top: 2rem;
-     display: grid;
- }
- 
- .btn-restart {
-     width: 10rem;
-     height: 3rem;
-     font-size: large;
-     border-radius: 1rem;
-     border: none;
-     background-color: rgb(155, 48, 107);
-     color: white;
-     grid-template-columns: 1fr;
-     margin: auto;
- }
+.rules {
+    display        : flex;
+    justify-content: center;
+    font-size      : large;
+
+    ol {
+        margin-top: 0;
+    }
+}
+
+#buttons {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top           : 2rem;
+}
+
+#score {
+    margin-top: 2rem;
+    font-size : 2rem;
+}
+
+#result {
+    margin-top: 2rem;
+    font-size : 3rem;
+}
+
+.restart-game {
+    margin-top: 2rem;
+    display   : grid;
+}
