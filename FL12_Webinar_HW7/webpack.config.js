@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageminPlugin = require("imagemin-webpack");
 
-
 module.exports = {
     mode: "development",
     entry: "./src/js/index.js",
