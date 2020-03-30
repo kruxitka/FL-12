@@ -1,0 +1,35 @@
+.game-buttons {
+    display        : flex;
+    justify-content: space-evenly;
+
+    .btn {
+        height       : 40px;
+        width        : 130px;
+        font-weight  : 500;
+        font-size    : 17px;
+        border-radius: 5px;
+        border       : none;
+        color           : white;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+        color: rgb(23, 0, 128);
+    }
+
+    .game-restart:hover {
+        background-color: rgb(64, 226, 43);
+    }
+
+    .new-game:hover {
+        background-color: rgb(226, 43, 171); 
+    }
+
+    .game-restart {
+        background-color: rgb(226, 43, 171);   
+    }
+
+    .new-game {
+        background-color: rgb(64, 226, 43);
+    }
+}

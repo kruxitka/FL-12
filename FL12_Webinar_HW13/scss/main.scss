@@ -1,0 +1,26 @@
+@import 'cells';
+@import 'buttons';
+
+/* body {
+    margin: 0 auto;
+} */
+section {
+    text-align: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 456px;
+    margin: 50px auto;  
+}
+
+
+
+
+
+
+
+
+
+
