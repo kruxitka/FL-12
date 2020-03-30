@@ -1,6 +1,6 @@
 import '../scss/style.scss';
 import { showRoundResult } from './result';
-import { score } from './result'
+import { score } from './result';
  
 const choices = document.querySelectorAll('.choice');
 const result = document.getElementById('result');
